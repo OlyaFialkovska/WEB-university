@@ -1,0 +1,36 @@
+body {
+    background-color: #111827 !important;
+    color: #f8f9fa !important;
+}
+
+.form-label,
+.form-check-label,
+.card-title,
+.card-text,
+.table,
+th,
+td {
+    color: #f8f9fa !important;
+}
+
+.form-control,
+.form-select,
+textarea {
+    background-color: #1f2937 !important;
+    color: #f8f9fa !important;
+    border-color: #374151 !important;
+}
+
+.form-control::placeholder {
+    color: #9ca3af !important;
+}
+
+.card {
+    background-color: #1f2937 !important;
+    border-color: #374151 !important;
+}
+
+.table {
+    --bs-table-bg: #1f2937;
+    --bs-table-border-color: #374151;
+}
