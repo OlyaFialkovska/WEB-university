@@ -1,4 +1,4 @@
-# WEB-university
+# WEB design and develop in University
 Фіалковська Ольга Олександрівна - КВ-34, 
 
 # Розробка статичного інтерфейсу Web-додатка
