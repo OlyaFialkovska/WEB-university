@@ -4,72 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MindVault — Профіль</title>
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-
   <body class="bg-dark text-light d-flex flex-column min-vh-100">
     <header class="border-bottom border-secondary">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container py-2">
-          <!-- Brand -->
-          <a
-            href="index.html"
-            class="navbar-brand fw-semibold d-flex align-items-center gap-2"
-          >
-            <span
-              class="d-flex align-items-center justify-content-center rounded bg-primary text-white"
-              style="width: 36px; height: 36px"
-              >MV</span
-            >
+          <a href="index.html" class="navbar-brand fw-semibold d-flex align-items-center gap-2">
+            <span class="d-flex align-items-center justify-content-center rounded bg-primary text-white" style="width: 36px; height: 36px">MV</span>
             <span>MindVault</span>
           </a>
-
-          <!-- Burger button -->
-          <button
-            class="navbar-toggler border-secondary"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navMenu"
-            aria-controls="navMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
             <span class="navbar-toggler-icon"></span>
           </button>
-
-          <!-- menu -->
           <div class="collapse navbar-collapse" id="navMenu">
-            <ul
-              class="navbar-nav ms-auto align-items-lg-center gap-lg-2 mt-3 mt-lg-0"
-            >
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">Про додаток</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="work.html">Робоча</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="profile.html">Профіль</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Вхід</a>
-              </li>
-
-              <li class="nav-item">
-                <a
-                  class="btn btn-primary btn-sm ms-lg-2 mt-2 mt-lg-0"
-                  href="register.html"
-                  >Реєстрація</a
-                >
-              </li>
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 mt-3 mt-lg-0">
+              <li class="nav-item"><a class="nav-link" href="about.html">Про додаток</a></li>
+              <li class="nav-item"><a class="nav-link" href="work.html">Робоча</a></li>
+              <li class="nav-item"><a class="nav-link active" href="profile.html">Профіль</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.html">Вхід</a></li>
+              <li class="nav-item"><a class="btn btn-primary btn-sm ms-lg-2 mt-2 mt-lg-0" href="register.html">Реєстрація</a></li>
             </ul>
           </div>
         </div>
@@ -79,48 +37,42 @@
     <main class="container my-5">
       <h1 class="fw-semibold text-center mb-4">Профіль користувача</h1>
 
-      <div class="card bg-secondary bg-opacity-10 border border-secondary">
+      <div id="empty-profile" class="alert alert-warning d-none mx-auto" style="max-width: 640px">
+        Дані користувача ще не заповнені. Спочатку зареєструйся.
+      </div>
+
+      <div id="profile-content" class="card panel-soft border border-secondary">
         <div class="card-body p-4">
+          <div class="d-flex justify-content-end mb-3">
+            <button id="logout-button" class="btn btn-outline-light btn-sm">Вийти</button>
+          </div>
+
           <div class="table-responsive">
             <table class="table table-dark table-bordered align-middle mb-0">
               <tbody>
-                <tr>
-                  <th scope="row" style="width: 30%">Ім’я</th>
-                  <td>Ольга</td>
-                </tr>
-                <tr>
-                  <th scope="row">Email</th>
-                  <td>olga@example.com</td>
-                </tr>
-                <tr>
-                  <th scope="row">Стать</th>
-                  <td>Жіноча</td>
-                </tr>
-                <tr>
-                  <th scope="row">Дата народження</th>
-                  <td>01.01.2005</td>
-                </tr>
+                <tr><th scope="row" style="width: 30%">Ім’я</th><td id="profile-name">—</td></tr>
+                <tr><th scope="row">Email</th><td id="profile-email">—</td></tr>
+                <tr><th scope="row">Стать</th><td id="profile-gender">—</td></tr>
+                <tr><th scope="row">Дата народження</th><td id="profile-birthdate">—</td></tr>
+                <tr><th scope="row">Статус</th><td id="profile-status">—</td></tr>
               </tbody>
             </table>
           </div>
 
-          <!-- Additional of block statistic -->
           <div class="row mt-4 g-3">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-4">
               <div class="card bg-dark border-secondary text-center h-100">
-                <div class="card-body">
-                  <h5 class="card-title">Кількість записів</h5>
-                  <p class="display-6 fw-semibold mb-0 text-light">12</p>
-                </div>
+                <div class="card-body"><h5 class="card-title">Кількість записів</h5><p id="profile-notes-count" class="stat-number mb-0">0</p></div>
               </div>
             </div>
-
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-4">
               <div class="card bg-dark border-secondary text-center h-100">
-                <div class="card-body">
-                  <h5 class="card-title">Активних цілей</h5>
-                  <p class="display-6 fw-semibold mb-0 text-light">3</p>
-                </div>
+                <div class="card-body"><h5 class="card-title">Активних цілей</h5><p id="profile-goals-count" class="stat-number mb-0">0</p></div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card bg-dark border-secondary text-center h-100">
+                <div class="card-body"><h5 class="card-title">Планів</h5><p id="profile-plans-count" class="stat-number mb-0">0</p></div>
               </div>
             </div>
           </div>
@@ -129,11 +81,10 @@
     </main>
 
     <footer class="mt-auto border-top border-secondary">
-      <div class="container text-center py-3 text-secondary small">
-        © 2026 MindVault
-      </div>
+      <div class="container text-center py-3 text-secondary small">© 2026 MindVault</div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/profile-page.js"></script>
   </body>
 </html>
